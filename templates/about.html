@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us - CareerPath</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      background-image: url('https://files.123freevectors.com/wp-content/original/111507-light-color-blurred-background-vector.jpg');
+            background-size: cover;
+          background-repeat: no-repeat; /* Optional: prevent image from repeating */
+          background-attachment: fixed;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background-color: #343a40;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .navbar-brand {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .about-container {
+      max-width: 1000px;
+      background-color: #fff;
+      padding: 50px;
+      margin: 50px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+    .about-container h2 {
+      color: #a0522d;
+      font-weight: bold;
+      margin-bottom: 35px;
+      text-align: center;
+      font-size: 2.8rem;
+    }
+    .about-container h3 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #555;
+      margin-top: 30px;
+    }
+    .about-container p, .about-container li {
+      font-size: 1.15rem;
+      color: #666;
+    }
+    .about-container ul {
+      padding-left: 20px;
+    }
+    .team-section {
+      margin-top: 60px;
+      background-color: #f9f9f9;
+      padding: 50px 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .team-member {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+    }
+    .team-member:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .team-member h3 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .team-member p {
+      color: #777;
+    }
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      text-align: center;
+      padding: 25px 0;
+      margin-top: auto;
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    .cta-register {
+      background-color: #a0522d;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 30px;
+      transition: background-color 0.3s;
+    }
+    .cta-register:hover {
+      background-color: #8b4513;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="bg-black text-light py-3" style="margin-top: 0; padding-top: 0;">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <h1 class="navbar-brand fw-bold animate__animated animate__pulse animate__infinite" style="font-size: 2rem; text-light;">
+                CareerPath
+            </h1>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item animate__animated animate__fadeInDown animate__delay-0s">
+                        <a class="nav-link fw-semibold text-light" href="/">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item animate__animated animate__fadeInDown animate__delay-0.1s">
+                        <a class="nav-link fw-semibold text-light" href="/recommend">Recommendations</a>
+                    </li>
+                    <li class="nav-item animate__animated animate__fadeInDown animate__delay-0.2s">
+                        <a class="nav-link fw-semibold text-light" href="/courses">Courses</a>
+                    </li>
+                    <li class="nav-item animate__animated animate__fadeInDown animate__delay-0.3s">
+                        <a class="nav-link fw-semibold text-light" href="/chatbot">Chatbot</a>
+                    </li>
+                    <li class="nav-item animate__animated animate__fadeInDown animate__delay-0.4s">
+                        <a class="nav-link fw-semibold text-light" href="/user_dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item animate__animated animate__fadeInDown animate__delay-0.5s">
+                        <a class="nav-link fw-semibold text-light" href="/about">About</a>
+                    </li>
+                    <li class="nav-item animate__animated animate__fadeInDown animate__delay-0.6s">
+                        <a class="nav-link fw-semibold text-light" href="/login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+  <main>
+    <div class="about-container">
+      <h2>About CareerPath</h2>
+      <p>Welcome to CareerPath, your dedicated platform for navigating the complexities of career exploration and advancement. We believe that everyone deserves access to clear, insightful guidance to make informed decisions about their professional future.</p>
+
+      <h3>Our Mission</h3>
+      <p>Our mission is to empower individuals at all stages of their careers – from students just starting out to seasoned professionals seeking new horizons. We strive to provide the resources and tools necessary to understand your strengths, explore potential career paths, and acquire the skills needed to succeed in a dynamic job market.</p>
+
+      <h3>Our Vision</h3>
+      <p>We envision a world where everyone can confidently chart their career journey, equipped with the knowledge and support to achieve their professional aspirations. By leveraging the power of technology and data-driven insights, we aim to simplify the career exploration process and connect individuals with the opportunities that best suit them.</p>
+
+      <h3>What We Offer</h3>
+      <ul>
+        <li><strong>Personalized Career Recommendations:</strong> Our intelligent system analyzes your skills, interests, and experience to suggest relevant career paths.</li>
+        <li><strong>Curated Course Suggestions:</strong> Discover recommended courses and learning resources to help you develop the necessary skills for your chosen career.</li>
+        <li><strong>Comprehensive Career Information:</strong> Explore detailed insights into various careers, including job descriptions, required qualifications, and potential salary ranges.</li>
+        <li><strong>AI-Powered Chatbot Assistant:</strong> Get instant answers to your career-related questions and receive guidance on your next steps.</li>
+      </ul>
+
+      <div class="team-section">
+        <h2>Our Team</h2>
+        <div class="team-grid">
+          <div class="team-member">
+            <h3>Divya Gupta</h3>
+            <p>Team Member</p>
+          </div>
+          <div class="team-member">
+            <h3>Divyanshi Namdev</h3>
+            <p>Team Member</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Register CTA -->
+      <a href="/register" class="cta-register">Join CareerPath Today! Register Now</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CareerPath. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

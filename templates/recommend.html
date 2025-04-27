@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Career Recommendation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0; /* Center the body content */
+  background-color: #D1D0D0;
+  color: #000000;
+  line-height: 1.8;
+  max-width: none; /* Remove the 1200px limit */
+  overflow-x: hidden; /* Or your preferred maximum width */
+  padding: 0; /* Keep your existing body padding */
+}
+
+
+
+    header h1 {
+      font-size: 2.4em;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .navbar {
+  display: flex;
+  justify-content: space-between; /* Or flex-start if all on left */
+  align-items: center;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  gap: 1rem; /* Optional spacing */
+  padding: 1rem 2rem;
+}
+
+    nav a {
+      color: #D1D0D0; /* Light grayish navigation links */
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+       white-space: nowrap;
+    }
+
+    nav a:hover {
+      background-color: rgba(209, 208, 208, 0.15); /* Slightly darker gray on hover */
+    }
+
+    .content {
+      max-width: 700px;
+      margin: 4rem auto;
+      padding: 30px; /* Increased padding for better spacing */
+      background-color: #E5E9EC; /* Slightly lighter gray content background */
+      border-radius: 16px; /* More rounded corners */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06); /* Softer shadow */
+      border: 2px solid #5C4E4E; /* Dark brownish-gray border */
+    }
+
+    .content h2 {
+      text-align: center;
+      color: #5C4E4E; /* Dark brownish-gray heading */
+      margin-bottom: 30px; /* Increased margin */
+      font-size: 2.2em; /* Slightly smaller heading */
+    }
+
+    .content form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content label {
+      margin-top: 1.5rem; /* Increased margin */
+      font-weight: bold;
+      color: #000000; /* Black label text */
+    }
+
+    .content input,
+    .content select {
+      padding: 0.75rem; /* Increased padding */
+      border: 1px solid #988686; /* Medium grayish-brown border */
+      border-radius: 8px; /* More rounded corners */
+      margin-top: 0.5rem; /* Increased margin */
+      font-size: 1em; /* Slightly larger font */
+      background-color: #fff; /* White input background */
+      color: #000000; /* Black input text */
+    }
+
+    .content button {
+      margin-top: 3rem; /* Increased margin */
+      background-color: #988686; /* Medium grayish-brown button */
+      color: #000000; /* Black button text */
+      padding: 1rem 2rem; /* Increased padding */
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1em; /* Slightly larger font */
+      font-weight: 600;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .content button:hover {
+      background-color: #5C4E4E; /* Dark brownish-gray button hover */
+    }
+
+    footer {
+      background-color: #000000; /* Black footer */
+      color: #D1D0D0; /* Light grayish footer text */
+      padding: 30px;
+      text-align: center;
+      margin-top: 4rem; /* Increased margin */
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="bg-black text-light py-3" style="margin-top: 0; padding-top: 0;">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-md navbar-dark">
+      <!-- Brand -->
+     <h1 class="navbar-brand fw-bold" style="font-size: 2rem; text-light;">
+        CareerPath
+        </h1>
+
+
+
+      <!-- Toggler/collapsing button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-light" href="/"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-light" href="/recommend">Recommendations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-light" href="/courses">Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-light" href="/chatbot">Chatbot</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-light" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-light" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+
+  <div class="content">
+    <h2>Get Career Recommendations</h2>
+    <form method="POST" action="/recommend">
+      <label for="name">Full Name</label>
+      <input type="text" name="name" required>
+
+      <label for="education">Education Level</label>
+      <select name="education" required>
+        <option value="">Select</option>
+        <option value="High School">High School</option>
+        <option value="Diploma">Diploma</option>
+        <option value="Bachelor's">Bachelor's</option>
+        <option value="Master's">Master's</option>
+      </select>
+
+      <label for="skills">Your Key Skills</label>
+      <input type="text" name="skills" placeholder="e.g. Python, Data Analysis" required>
+
+      <label for="interests">Your Interests</label>
+      <input type="text" name="interests" placeholder="e.g. AI, Web Development" required>
+
+      <button type="submit">Submit</button>
+    </form>
+    {% if prediction %}
+        <div class="result-box text-center">
+    <h4>🚀 Hey {{ name }}, based on your skills and interests, your ideal career path is:</h4>
+    <h2 class="text-success fw-bold mt-3">{{ prediction }}</h2>
+    <p class="text-muted mt-2">🌟 This could be your next big move. Go explore and thrive!</p>
+      </div>
+    {% endif %}
+  </div>
+
+    <div class="content">
+        <h2>Why Choose CareerPath?</h2>
+        <p>CareerPath is designed to help you find the right career path based on your education, skills, and interests. Our AI-driven recommendations are tailored to your unique profile.</p>
+        <p>Whether you're a student, a professional looking to switch careers, or someone seeking guidance, CareerPath is here to assist you in making informed decisions about your future.</p>
+  <footer>
+    <p>&copy; 2025 CareerPath | Designed for aspiring professionals</p>
+  </footer>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

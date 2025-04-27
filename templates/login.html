@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | CareerPath</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+        background-image: url('https://files.123freevectors.com/wp-content/original/111507-light-color-blurred-background-vector.jpg');
+            background-size: cover;
+          background-repeat: no-repeat; /* Optional: prevent image from repeating */
+          background-attachment: fixed;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background-color: #000;
+      padding: 0;
+    }
+    .navbar {
+      padding: 0.5rem 1rem;
+    }
+    .navbar-brand {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 0;
+    }
+    .login-container {
+      background-color: #fff;
+      padding: 40px;
+      margin-top: 60px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    footer {
+      background-color: #000;
+      color: #D1D0D0;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+    }
+  </style>
+</head>
+
+<body>
+    <header class="bg-black text-light py-3" style="margin-top: 0; padding-top: 0;">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <h1 class="navbar-brand fw-bold"   style="font-size: 2rem; text-light;">
+                    CareerPath
+                    </h1>
+    
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav gap-3">
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-light" href="/">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-light" href="/recommend">Recommendations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-light" href="/courses">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-light" href="/chatbot">Chatbot</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-light" href="/user_dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-light" href="/about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-light" href="/login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+
+  
+
+
+  <main class="container">
+    <div class="login-container">
+      <h2 class="text-center mb-4">Login</h2>
+      <form action="/login_validation" method="post">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
+          <label class="form-check-label" for="rememberMe">Remember me</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+
+        <p class="mt-3 text-center">Don't have an account? <a href="/register">Sign up</a></p>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CareerPath | Designed for aspiring professionals</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,560 @@
+<html>
+<head>
+    <title>Skill-Bot Chatbot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url('https://files.123freevectors.com/wp-content/original/111507-light-color-blurred-background-vector.jpg');
+            background-size: cover;
+          background-repeat: no-repeat; /* Optional: prevent image from repeating */
+          background-attachment: fixed;
+          
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            background-color: #D1D0D0;
+            color: #000000;
+            line-height: 1.8;
+            max-width: none; /* Remove the 1200px limit */
+            overflow-x: hidden;
+            padding: 0;
+            display: flex; /* Enable flexbox for body */
+            flex-direction: column; /* Stack header, chatbot, footer */
+            min-height: 100vh; /* Ensure body takes at least the full viewport height */
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding-top: 0;
+        }
+
+        header .container-fluid {
+            padding: 1rem 2rem;
+        }
+
+        header h1 {
+            font-size: 2.4em;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: #D1D0D0;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            background-color: rgba(209, 208, 208, 0.15);
+        }
+
+        .chatbot-container {
+            background-color: rgba(238, 234, 234, 0.9);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 30px; /* Adjusted padding */
+            max-width: 700px; /* Adjusted max-width */
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid #5C4E4E;
+            flex-grow: 1;
+        }
+
+        h2 {
+            color: #5C4E4E;
+            text-align: center;
+            margin-bottom: 25px; /* Adjusted margin */
+            font-size: 2.2em; /* Adjusted font size */
+        }
+
+        #chat-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 15px; /* Adjusted padding */
+            margin-bottom: 20px; /* Adjusted margin */
+            border: 1px solid #988686;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-message, .bot-message {
+            padding: 12px 18px; /* Adjusted padding */
+            margin-bottom: 12px; /* Adjusted margin */
+            border-radius: 20px; /* Adjusted border-radius */
+            clear: both;
+            word-break: break-word;
+            font-size: 1.1em; /* Increased font size */
+        }
+
+        .user-message {
+            background-color: #988686;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .bot-message {
+            background-color: #E5E9EC;
+            color: #5C4E4E;
+            align-self: flex-start;
+        }
+
+        .bot-response-details {
+            margin-left: 25px; /* Adjusted margin */
+            margin-bottom: 10px; /* Adjusted margin */
+        }
+
+        .bot-response-title {
+            font-weight: bold;
+            color: #5C4E4E;
+            margin-bottom: 5px; /* Adjusted margin */
+            font-size: 1.1em; /* Increased font size */
+        }
+
+        .bot-response-list {
+            margin-left: 20px; /* Adjusted margin */
+            list-style-type: disc;
+            color: #5C4E4E;
+            font-size: 1.1em; /* Increased font size */
+        }
+
+        .input-area {
+            display: flex;
+            align-items: center;
+        }
+
+        #user-input {
+            flex-grow: 1;
+            padding: 10px; /* Adjusted padding */
+            border: 1px solid #988686;
+            border-radius: 8px;
+            margin-right: 10px; /* Adjusted margin */
+            font-size: 1.2em; /* Increased font size */
+            color: #5C4E4E;
+            background-color: #fff;
+        }
+
+        #send-button {
+            padding: 10px 18px; /* Adjusted padding */
+            background-color: #5C4E4E;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1.1em; /* Increased font size */
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #send-button:hover {
+            background-color: #988686;
+        }
+
+        footer {
+            background-color: #000000;
+            color: #D1D0D0;
+            text-align: center;
+            padding: 25px; /* Adjusted padding */
+            font-size: 1.1em; /* Increased font size */
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-black text-light py-3" style="margin-top: 0; padding-top: 0;">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <h1 class="navbar-brand fw-bold" style="font-size: 2rem; text-light;">
+                    CareerPath
+                </h1>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav gap-3">
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-light" href="/"><i class="fas fa-home"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-light" href="/recommend">Recommendations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-light" href="/courses">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-light" href="/chatbot">Chatbot</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-light" href="/user_dashboard">Dashboard</a>
+                          </li>
+                
+                          <li class="nav-item">
+                            <a class="nav-link fw-semibold text-light" href="/about">About</a>
+                          </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-light" href="/login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="chatbot-container">
+        <h2>Skill-Bot 🤖</h2>
+        <div id="chat-container">
+            <div class="bot-message">Hello there! I'm Skill-Bot, ready to help you explore career paths. What are you curious about today? You can ask me about skills, courses, salary, job outlook, and scope for different careers.</div>
+        </div>
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="e.g., What skills are needed for a Data Scientist?">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 CareerPath | Designed for aspiring professionals</p>
+    </footer>
+
+
+    
+    <script>
+        const chatContainer = document.getElementById('chat-container');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        const careerData = {
+            "Data Scientist": {
+                "Required Skills": ["Python", "Machine Learning", "Statistics", "Data Analysis", "SQL", "Communication", "Big Data Technologies"],
+                "Potential Courses": ["Bachelor's/Master's in Data Science", "Statistics", "Computer Science", "Mathematics", "Online courses (Coursera, edX, Udemy)"],
+                "Job Outlook (India)": "Very High Demand, expected to grow significantly",
+                "Expected Salary (India)": "₹5 Lakhs - ₹30 Lakhs per year (depending on experience, specialization, and company)",
+                "Scope": "Extensive opportunities across IT, finance, healthcare, e-commerce, manufacturing, and research.",
+                "Day-to-day Tasks": ["Analyzing large datasets", "Developing machine learning models", "Communicating insights to stakeholders", "Experimenting with algorithms", "Data visualization"]
+            },
+            "Data Science": {
+                "Required Skills": ["Python", "Machine Learning", "Statistics", "Data Analysis", "SQL", "Communication", "Big Data Technologies"],
+                "Potential Courses": ["Bachelor's/Master's in Data Science", "Statistics", "Computer Science", "Mathematics", "Online courses (Coursera, edX, Udemy)"],
+                "Job Outlook (India)": "Very High Demand, expected to grow significantly",
+                "Expected Salary (India)": "₹5 Lakhs - ₹30 Lakhs per year (depending on experience, specialization, and company)",
+                "Scope": "Extensive opportunities across IT, finance, healthcare, e-commerce, manufacturing, and research.",
+                "Day-to-day Tasks": ["Analyzing large datasets", "Developing machine learning models", "Communicating insights to stakeholders", "Experimenting with algorithms", "Data visualization"]
+            },
+            "Software Engineer": {
+                "Required Skills": ["Programming (e.g., Java, Python, C++, JavaScript)", "Data Structures and Algorithms", "Problem Solving", "Version Control (Git)", "Testing", "Agile methodologies"],
+                "Potential Courses": ["Bachelor's/Master's in Computer Science", "Software Engineering", "Information Technology", "Bootcamps", "Online certifications"],
+                "Job Outlook (India)": "Extremely High Demand, a foundational role in the tech industry",
+                "Expected Salary (India)": "₹3 Lakhs - ₹25 Lakhs per year (depending on specialization, experience, and company)",
+                "Scope": "Vast opportunities in web development, mobile development, backend systems, game development, embedded systems, and more.",
+                "Day-to-day Tasks": ["Writing and testing code", "Collaborating with team members", "Debugging and troubleshooting", "Designing software solutions", "Participating in code reviews"]
+            },
+            "UI/UX Designer": {
+                "Required Skills": ["User Research", "Wireframing", "Prototyping (Figma, Adobe XD, Sketch)", "Visual Design Principles", "Usability Testing", "Information Architecture", "Communication"],
+                "Potential Courses": ["Bachelor's/Diploma in Design (UI/UX)", "Graphic Design", "Human-Computer Interaction", "Online courses (Udemy, Skillshare, Coursera)"],
+                "Job Outlook (India)": "Growing Demand, with increasing focus on user-centric products",
+                "Expected Salary (India)": "₹3 Lakhs - ₹15 Lakhs per year",
+                "Scope": "Crucial for tech companies, product-based businesses, e-commerce platforms, and design agencies.",
+                "Day-to-day Tasks": ["Conducting user interviews", "Creating wireframes and prototypes", "Designing user interfaces", "Performing usability testing", "Collaborating with developers and product managers"]
+            },
+            "Digital Marketing Specialist": {
+                "Required Skills": ["SEO", "SEM/PPC", "Social Media Marketing", "Content Marketing", "Email Marketing", "Analytics (Google Analytics)", "Communication", "Data-driven thinking"],
+                "Potential Courses": ["Bachelor's in Marketing", "Digital Marketing Certifications (Google, HubSpot, Facebook)", "Online courses", "Specialized diplomas"],
+                "Job Outlook (India)": "High Demand, as businesses increasingly focus on online presence",
+                "Expected Salary (India)": "₹2.5 Lakhs - ₹12 Lakhs per year",
+                "Scope": "Essential for businesses of all sizes to reach their target audience online, across various industries.",
+                "Day-to-day Tasks": ["Planning and executing marketing campaigns", "Analyzing campaign performance", "Managing social media presence", "Creating and optimizing content", "Running SEO and PPC activities"]
+            },
+            "AI/ML Engineer": {
+                "Required Skills": ["Python", "Machine Learning Algorithms", "Deep Learning Frameworks (TensorFlow, PyTorch)", "Natural Language Processing (NLP)", "Computer Vision", "Statistics"],
+                "Related Courses": ["B.Tech/M.Tech in AI/ML", "Computer Science with AI specialization", "Master's in Data Science with AI focus", "Specialized AI/ML certifications"],
+                "Job Outlook (India)": "Surging Demand, a cutting-edge field with significant growth potential",
+                "Expected Salary (India)": "₹6 Lakhs - ₹35 Lakhs per year",
+                "Scope": "Revolutionizing industries like healthcare, finance, transportation, and technology."
+            },
+            "Cybersecurity Analyst": {
+                "Required Skills": ["Network Security", "Ethical Hacking", "Intrusion Detection", "Security Auditing", "Cryptography", "Incident Response"],
+                "Related Courses": ["B.Tech/M.Tech in Cybersecurity", "BSc/MSc in Information Security", "Certifications (CISSP, CEH, CompTIA Security+)"],
+                "Job Outlook (India)": "High Demand, with increasing threats and the need for data protection",
+                "Expected Salary (India)": "₹3.5 Lakhs - ₹20 Lakhs per year",
+                "Scope": "Critical for organizations of all sizes to protect their digital assets."
+            },
+            "Cloud Architect": {
+                "Required Skills": ["Cloud Platforms (AWS, Azure, GCP)", "Networking", "System Administration", "DevOps", "Security", "Scalability"],
+                "Related Courses": ["B.Tech/M.Tech in Computer Science", "Cloud certifications (AWS Certified Solutions Architect, Azure Solutions Architect)", "Networking certifications"],
+                "Job Outlook (India)": "Very High Demand, as cloud adoption continues to grow rapidly",
+                "Expected Salary (India)": "₹7 Lakhs - ₹30 Lakhs per year",
+                "Scope": "Designing and managing cloud infrastructure for businesses across various industries."
+            },
+            "Full Stack Developer": {
+                "Required Skills": ["Frontend (HTML, CSS, JavaScript, Frameworks like React, Angular)", "Backend (Node.js, Python, Java, etc.)", "Databases (SQL, NoSQL)", "APIs", "Version Control"],
+                "Related Courses": ["B.Tech/M.Tech in Computer Science", "Web Development bootcamps", "Online full-stack development courses"],
+                "Job Outlook (India)": "Extremely High Demand, versatile role in web application development",
+                "Expected Salary (India)": "₹3.5 Lakhs - ₹18 Lakhs per year",
+                "Scope": "Essential for building and maintaining modern web applications."
+            },
+            "Mobile App Developer": {
+                "Required Skills": ["Platform-specific languages (Java/Kotlin for Android, Swift/Objective-C for iOS)", "Cross-platform frameworks (React Native, Flutter)", "UI/UX principles", "API integration"],
+                "Related Courses": ["B.Tech/M.Tech in Computer Science", "Mobile app development courses", "Specialized training in Android/iOS development"],
+                "Job Outlook (India)": "High Demand, driven by the increasing use of smartphones and mobile applications",
+                "Expected Salary (India)": "₹3 Lakhs - ₹15 Lakhs per year",
+                "Scope": "Creating applications for various purposes, from entertainment to business."
+            },
+            "Game Developer": {
+                "Required Skills": ["Programming (C++, C#, Python)", "Game Engines (Unity, Unreal Engine)", "Graphics and Animation principles", "Game design concepts", "Problem-solving"],
+                "Related Courses": ["B.Sc in Game Development", "Diploma in Game Design and Development", "Specialized courses in game programming/art"],
+                "Job Outlook (India)": "Growing Demand, with the expanding gaming industry",
+                "Expected Salary (India)": "₹3 Lakhs - ₹10 Lakhs per year (can vary greatly based on experience and company)",
+                "Scope": "Creating games for various platforms, including mobile, PC, and consoles."
+            },
+            "DevOps Engineer": {
+                "Required Skills": ["Linux", "Cloud Platforms", "Automation Tools (Ansible, Chef, Puppet)", "Containerization (Docker, Kubernetes)", "CI/CD pipelines", "Scripting (Bash, Python)"],
+                "Related Courses": ["B.Tech/M.Tech in Computer Science", "System Administration certifications", "Cloud certifications", "DevOps training programs"],
+                "Job Outlook (India)": "Very High Demand, crucial for streamlining software development and deployment",
+                "Expected Salary (India)": "₹5 Lakhs - ₹22 Lakhs per year",
+                "Scope": "Implementing and managing the infrastructure and processes for software delivery."
+            },
+            "Business Analyst": {
+                "Required Skills": ["Analytical Skills", "Problem Solving", "Communication", "Stakeholder Management", "Data Analysis", "Documentation"],
+                "Related Courses": ["BBA/MBA", "Economics degrees", "Engineering degrees with management focus", "Business Analytics certifications"],
+                "Job Outlook (India)": "High Demand, bridging the gap between business needs and IT solutions",
+                "Expected Salary (India)": "₹3 Lakhs - ₹12 Lakhs per year",
+                "Scope": "Working across various industries to improve efficiency and solve business problems."
+            },
+            "Financial Analyst": {
+                "Required Skills": ["Financial Modeling", "Data Analysis", "Valuation", "Accounting Principles", "Investment Management", "Communication"],
+                "Related Courses": ["B.Com/M.Com", "MBA in Finance", "CFA/FRM certifications", "Economics degrees"],
+                "Job Outlook (India)": "Moderate to High Demand, in financial institutions and corporate finance departments",
+                "Expected Salary (India)": "₹3 Lakhs - ₹15 Lakhs per year",
+                "Scope": "Analyzing financial data, providing investment recommendations, and managing financial risk."
+            },
+            "Human Resources Manager": {
+                "Required Skills": ["Recruitment", "Employee Relations", "Performance Management", "Compensation and Benefits", "Labor Law", "Communication", "Leadership"],
+                "Related Courses": ["BBA/MBA in HR", "Master's in Human Resources Management", "Relevant certifications"],
+                "Job Outlook (India)": "Stable Demand, essential for managing the workforce in organizations",
+                "Expected Salary (India)": "₹3 Lakhs - ₹12 Lakhs per year",
+                "Scope": "Overseeing all aspects of employee management and organizational development."
+            },
+            "Project Manager": {
+                "Required Skills": ["Planning", "Organizing", "Leadership", "Communication", "Risk Management", "Stakeholder Management", "Time Management"],
+                "Related Courses": ["MBA with Project Management specialization", "Project Management certifications (PMP, PRINCE2)", "Engineering degrees with management focus"],
+                "Job Outlook (India)": "High Demand, crucial for leading and coordinating projects across industries",
+                "Expected Salary (India)": "₹4 Lakhs - ₹18 Lakhs per year",
+                "Scope": "Managing projects from initiation to closure, ensuring they meet objectives."
+            },
+            "Marketing Manager": {
+                "Required Skills": ["Marketing Strategy", "Branding", "Market Research", "Digital Marketing", "Communication", "Leadership", "Analytics"],
+                "Related Courses": ["BBA/MBA in Marketing", "Marketing certifications", "Degrees in Advertising and Communications"],
+                "Job Outlook (India)": "High Demand, driving business growth and brand awareness",
+                "Expected Salary (India)": "₹3.5 Lakhs - ₹15 Lakhs per year",
+                "Scope": "Developing and executing marketing campaigns and strategies."
+            },
+            "Sales Manager": {
+                "Required Skills": ["Sales Strategy", "Customer Relationship Management", "Negotiation", "Communication", "Leadership", "Sales Forecasting"],
+                "Related Courses": ["BBA/MBA in Marketing/Sales", "Sales training programs", "Degrees in Business Administration"],
+                "Job Outlook (India)": "Moderate to High Demand, essential for revenue generation in organizations",
+                "Expected Salary (India)": "₹3 Lakhs - ₹15 Lakhs per year (often with commission)",
+                "Scope": "Leading and managing sales teams to achieve sales targets."
+            },
+            "Operations Manager": {
+                "Required Skills": ["Process Optimization", "Supply Chain Management", "Quality Control", "Efficiency Improvement", "Leadership", "Problem Solving"],
+                "Related Courses": ["MBA in Operations Management", "Engineering degrees (Industrial, Mechanical)", "Supply Chain certifications"],
+                "Job Outlook (India)": "Stable Demand, ensuring smooth and efficient business operations",
+                "Expected Salary (India)": "₹4 Lakhs - ₹16 Lakhs per year",
+                "Scope": "Overseeing the production and delivery of goods and services."
+            },
+            "Supply Chain Manager": {
+                "Required Skills": ["Logistics", "Inventory Management", "Procurement", "Supplier Management", "Forecasting", "Optimization"],
+                "Related Courses": ["MBA in Supply Chain Management", "Logistics and Supply Chain degrees", "Relevant certifications"],
+                "Job Outlook (India)": "Growing Demand, with increasing focus on efficient supply chains",
+                "Expected Salary (India)": "₹5 lakh"},
+            
+            // Add more career data here!
+        };
+
+        sendButton.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function appendMessage(className, text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add(className);
+            messageDiv.innerHTML = text.replace(/\n/g, '<br>');
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function getBotResponse(message) {
+            const lowerCaseMessage = message.toLowerCase();
+
+            if (lowerCaseMessage.includes("hello") || lowerCaseMessage.includes("hi") || lowerCaseMessage.includes("hey")) {
+                return "Hello there! How can I assist you with career exploration today?";
+            }
+
+            if (lowerCaseMessage.includes("bye") || lowerCaseMessage.includes("goodbye") || lowerCaseMessage.includes("thank you")) {
+                return "You're welcome! Feel free to ask if you have more questions in the future. Have a great day from Indore!";
+            }
+            if (lowerCaseMessage.includes("hello") || lowerCaseMessage.includes("hi") || lowerCaseMessage.includes("hey")) {
+                return "Hello there! How can I assist you with career exploration today?";
+            }
+
+            if (lowerCaseMessage.includes("bye") || lowerCaseMessage.includes("goodbye") || lowerCaseMessage.includes("thank you")) {
+                return "You're welcome! Feel free to ask if you have more questions in the future. Have a great day from Indore!";
+            }
+             // Motivational Intent
+    if (lowerCaseMessage.includes("motivate me") || lowerCaseMessage.includes("inspire me")) {
+        const quotes = [
+            "Believe in yourself! You are capable of amazing things. 🚀",
+            "Success is no accident. It's hard work, perseverance, and learning. 💪",
+            "Your limitation—it's only your imagination. ✨",
+            "Push yourself, because no one else is going to do it for you. 🧠"
+        ];
+        return quotes[Math.floor(Math.random() * quotes.length)];
+    }
+
+    // Fun/Interactive Intent
+    if (lowerCaseMessage.includes("tell me a joke") || lowerCaseMessage.includes("make me laugh")) {
+        const jokes = [
+            "Why did the computer go to therapy? It had too many bytes of sadness!",
+            "Why was the JavaScript developer sad? Because they didn’t know how to ‘null’ their feelings.",
+            "Why don’t data scientists get lost? They always find the mean!"
+        ];
+        return jokes[Math.floor(Math.random() * jokes.length)];
+    }
+
+    // Resume Tips
+    if (lowerCaseMessage.includes("resume tips") || lowerCaseMessage.includes("cv tips")) {
+        return `<div class="bot-message">Skill-Bot: 📝 Here are 3 quick resume tips:
+        <ul><li>Keep it concise (1 page is ideal)</li>
+        <li>Tailor it to the job you’re applying for</li>
+        <li>Use action verbs like 'developed', 'led', 'analyzed'</li></ul></div>`;
+    }
+    // Interview Tips
+    if (lowerCaseMessage.includes("interview tips") || lowerCaseMessage.includes("how to crack interview")) {
+        return `<div class="bot-message">Skill-Bot: 💼 Top 3 interview tips:
+        <ul><li>Research the company and role</li>
+        <li>Practice common questions with STAR format</li>
+        <li>Be confident, clear, and honest</li></ul></div>`;
+    }
+
+    // Trending Skills
+    if (lowerCaseMessage.includes("trending skills") || lowerCaseMessage.includes("top skills")) {
+        return `<div class="bot-message">Skill-Bot: 🌟 Trending skills in 2025:
+        <ul><li>Generative AI</li><li>Cloud Computing</li><li>Cybersecurity</li><li>Data Analysis</li><li>Prompt Engineering</li></ul></div>`;
+    }
+
+    // Career Confusion
+    if (lowerCaseMessage.includes("i'm confused") || lowerCaseMessage.includes("which career is right for me") || lowerCaseMessage.includes("help me choose a career")) {
+        return `Skill-Bot: 🤔 No worries! Tell me about your interests, strengths, or subjects you like — and I’ll try to guide you. You can also try our Career Recommendation system!`;
+    }
+
+    // Career Comparison
+    if (lowerCaseMessage.includes("compare") && lowerCaseMessage.includes("vs")) {
+        return `Skill-Bot: 🔍 I can compare careers! Try asking like “Data Scientist vs Software Engineer” or “MBA vs M.Tech”. (Coming soon: visual comparison!)`;
+    }
+
+    // Confidence/Encouragement
+    if (lowerCaseMessage.includes("i can't do it") || lowerCaseMessage.includes("i'm not smart")) {
+        return `Skill-Bot: Don’t be too hard on yourself 💙. Everyone starts somewhere. Keep practicing, stay consistent — and success will follow you! 💯`;
+    }
+
+
+            for (const career in careerData) {
+                if (careerData.hasOwnProperty(career) && lowerCaseMessage.includes(career.toLowerCase())) {
+                    const careerInfo = careerData[career];
+                    let responseHTML = `<div class="bot-message">Skill-Bot: Here's information about <b>${career}</b>:`;
+                    for (const key in careerInfo) {
+                        if (careerInfo.hasOwnProperty(key)) {
+                            responseHTML += `<div class="bot-response-details"><span class="bot-response-title">${key.replace(/([A-Z])/g, ' $1').trim()}:</span> `;
+                            if (Array.isArray(careerInfo[key])) {
+                                responseHTML += `<ul class="bot-response-list"><li>${careerInfo[key].join('</li><li>')}</li></ul>`;
+                            } else {
+                                responseHTML += `<span>${careerInfo[key]}</span></div>`;
+                            }
+                        }
+                    }
+                    responseHTML += `</div>`;
+                    return responseHTML;
+                }
+            }
+
+            const questionPatterns = [
+                { keywords: ["skills", "needed", "for"], responseKey: "Required Skills" },
+                { keywords: ["courses", "for", "to become"], responseKey: "Potential Courses" },
+                { keywords: ["salary", "of", "earn"], responseKey: "Expected Salary (India)" },
+                { keywords: ["job outlook", "for", "future"], responseKey: "Job Outlook (India)" },
+                { keywords: ["scope", "of", "opportunities"], responseKey: "Scope" },
+                { keywords: ["day-to-day", "tasks", "in"], responseKey: "Day-to-day Tasks" },
+                { keywords: ["what is", "about"], responseKey: null }, // Handle general info
+                { keywords: ["tell me about"], responseKey: null },   // Handle general info
+            ];
+
+            for (const pattern of questionPatterns) {
+                const allKeywordsPresent = pattern.keywords.every(keyword => lowerCaseMessage.includes(keyword));
+                if (allKeywordsPresent) {
+                    const careerMatch = Object.keys(careerData).find(career => lowerCaseMessage.includes(career.toLowerCase()));
+                    if (careerMatch) {
+                        if (pattern.responseKey) {
+                            const info = careerData[careerMatch][pattern.responseKey];
+                            return `<div class="bot-message">Skill-Bot: ${pattern.responseKey.replace(/([A-Z])/g, ' $1').trim()} for <b>${careerMatch}</b>: ${Array.isArray(info) ? '<ul class="bot-response-list"><li>' + info.join('</li><li>') + '</li></ul>' : info}</div>`;
+                        } else { // General info request
+                            const careerInfo = careerData[careerMatch];
+                            let responseHTML = `<div class="bot-message">Skill-Bot: Here's some info about <b>${careerMatch}</b>:\n`;
+                            for (const key in careerInfo) {
+                                if (careerInfo.hasOwnProperty(key)) {
+                                    responseHTML += `<div class="bot-response-details"><span class="bot-response-title">${key.replace(/([A-Z])/g, ' $1').trim()}:</span> <span>${Array.isArray(careerInfo[key]) ? careerInfo[key].join(', ') : careerInfo[key]}</span></div>`;
+                                }
+                            }
+                            responseHTML += `</div>`;
+                            return responseHTML;
+                        }
+                    } else if (!lowerCaseMessage.includes("hello") && !lowerCaseMessage.includes("bye") && !lowerCaseMessage.includes("thank you")) {
+                        return `<div class="bot-message">Skill-Bot: Could you please specify which career you're interested in?</div>`;
+                    }
+                }
+            }
+
+            return `<div class="bot-message">Skill-Bot: I can provide info on skills, courses, salary, job outlook, and scope for various careers. Ask me something like "What skills are needed for a Data Scientist?".</div>`;
+        }
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (message) {
+                appendMessage('user-message', 'You: ' + message);
+                userInput.value = '';
+                const botResponseHTML = getBotResponse(message);
+                appendMessage('bot-message', botResponseHTML);
+            }
+        }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

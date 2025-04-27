@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - CareerPath</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+       body {
+          font-family: 'Open Sans', sans-serif;
+          margin: 0;
+          background-color: #D1D0D0;
+          color: #000000;
+          line-height: 1.8;
+          max-width: none; /* Remove the 1200px limit */
+  overflow-x: hidden;
+          padding: 0;
+      }
+
+
+      header h1 {
+          font-size: 2.4em;
+          margin: 0;
+          font-weight: bold;
+      }
+
+         .navbar {
+  display: flex;
+  justify-content: space-between; /* Or flex-start if all on left */
+  align-items: center;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  gap: 1rem; /* Optional spacing */
+  padding: 1rem 2rem;
+}
+
+
+      nav a {
+          color: #D1D0D0;
+          text-decoration: none;
+          padding: 12px 20px;
+          border-radius: 6px;
+          transition: background-color 0.3s ease;
+          font-weight: 600;
+      }
+
+      nav a:hover {
+          background-color: rgba(209, 208, 208, 0.15);
+      }
+
+      .contact-container {
+          max-width: 800px;
+          margin: 60px auto;
+          padding: 40px;
+          background-color: #E5E9EC;
+          border-radius: 16px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+          border: 2px solid #5C4E4E;
+      }
+
+      .contact-container h2 {
+          font-size: 2.8em;
+          color: #000000;
+          margin-bottom: 30px;
+          text-align: center;
+          font-weight: bold;
+      }
+
+      .contact-info {
+          margin-bottom: 40px;
+          text-align: center;
+      }
+
+      .contact-info p {
+          font-size: 1.15em;
+          color: #000000;
+          line-height: 1.8;
+          margin-bottom: 15px;
+      }
+
+      .contact-info a {
+          color: #988686;
+          text-decoration: none;
+          transition: color 0.3s ease;
+      }
+
+      .contact-info a:hover {
+          color: #5C4E4E;
+      }
+
+      .contact-form {
+          margin-top: 40px;
+      }
+
+      .contact-form h3 {
+          font-size: 2em;
+          color: #5C4E4E;
+          margin-bottom: 25px;
+          font-weight: bold;
+          text-align: center;
+      }
+
+      .form-group {
+          margin-bottom: 20px;
+      }
+
+      .form-group label {
+          display: block;
+          font-size: 1.1em;
+          color: #5C4E4E;
+          margin-bottom: 8px;
+          font-weight: 600;
+      }
+
+      .form-group input[type="text"],
+      .form-group input[type="email"],
+      .form-group textarea {
+          width: calc(100% - 20px);
+          padding: 12px;
+          border: 1px solid #988686;
+          border-radius: 8px;
+          font-size: 1em;
+          color: #000000;
+          background-color: #F8F8F8;
+          box-sizing: border-box;
+      }
+
+      .form-group textarea {
+          resize: vertical;
+          min-height: 150px;
+      }
+
+      .form-group button {
+          background-color: #988686;
+          color: #000000;
+          border: none;
+          padding: 15px 30px;
+          font-size: 1.1em;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          font-weight: 600;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group button:hover {
+          background-color: #5C4E4E;
+      }
+
+      footer {
+          background-color: #000000;
+          color: #D1D0D0;
+          text-align: center;
+          padding: 30px;
+          font-size: 0.9em;
+          margin-top: 80px;
+      }
+
+      /* Flash message styles */
+      .flash-message {
+          padding: 12px;
+          margin-bottom: 20px;
+          border-radius: 6px;
+          font-weight: 600;
+          text-align: center;
+          animation: fadeIn 0.5s ease-in;
+      }
+
+      .flash-message.success {
+          background-color: #d4edda;
+          color: #155724;
+          border: 1px solid #c3e6cb;
+      }
+
+      .flash-message.warning {
+          background-color: #fff3cd;
+          color: #856404;
+          border: 1px solid #ffeeba;
+      }
+
+      @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+      }
+    </style>
+</head>
+<body>
+    <header class="bg-black text-light py-3" style="margin-top: 0; padding-top: 0;">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-md navbar-dark">
+      <!-- Brand -->
+     <h1 class="navbar-brand fw-bold" style="font-size: 2rem; text-light;">
+        CareerPath
+        </h1>
+
+
+
+      <!-- Toggler/collapsing button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-light" href="/"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-light" href="/recommend">Recommendations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-light" href="/courses">Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-light" href="/chatbot">Chatbot</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-light" href="/user_dashboard">Dashboard</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-light" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-light" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+
+        <div class="contact-info">
+            <p>We'd love to hear from you! For any inquiries, feedback, or support, please feel free to reach out to us using the information below or the contact form.</p>
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:support@careerpath.com">support@careerpath.com</a></p>
+            <p><i class="fas fa-phone"></i> Phone: +91 9876543210 (India)</p>
+            <p><i class="fas fa-map-marker-alt"></i> Address: CareerPath Headquarters, Indore , India</p>
+        </div>
+
+        <!-- Flash message display -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <div class="contact-form">
+            <h3>Send us a Message</h3>
+            <form action="/contact" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 CareerPath. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Optional JavaScript can be added here
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
