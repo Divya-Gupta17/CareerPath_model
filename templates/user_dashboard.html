@@ -202,7 +202,7 @@
                             <a class="nav-link fw-semibold text-light" href="/courses">Courses</a>
                         </li>
                         <li class="nav-item animate__animated animate__fadeInDown animate__delay-0.3s">
-                            <a class="nav-link fw-semibold text-light" href="/chatbot">Chatbot</a>
+                            <a class="nav-link fw-semibold text-light" href="/ai_chatbot">AI-Chatbot</a>
                         </li>
                         <li class="nav-item animate__animated animate__fadeInDown animate__delay-0.4s">
                             <a class="nav-link fw-semibold text-light" href="/user_dashboard">Dashboard</a>
@@ -213,14 +213,24 @@
                         <li class="nav-item animate__animated animate__fadeInDown animate__delay-0.6s">
                             <a class="nav-link fw-semibold text-light" href="/login">Login</a>
                         </li>
+
                     </ul>
                 </div>
             </nav>
         </div>
     </header>
 
-    <div class="container animate__animated animate__fadeInUp">
-        <h2 class="animate__animated animate__pulse">Welcome, {{ firstname }}!</h2>
+    <div class="container text-center mt-5 animate__animated animate__fadeInUp">
+    <h2 class="animate__animated animate__pulse mb-3">Welcome, {{ firstname }}!</h2>
+    
+    <h4 class="text-muted mb-4">🤖 You now have access to our AI-powered chatbot.</h4>
+
+    <button class="btn btn-primary btn-lg animate__animated animate__fadeInUp"
+            onclick="location.href='{{ url_for('ai_chatbot') }}'">
+        💬 Talk to AI Bot
+    </button>
+
+
 
         <div class="card animate__animated animate__fadeInLeft">
             <div class="card-header">

@@ -83,7 +83,7 @@ def login_validation():
         session['user_id'] = users[0][0]
         session['firstname'] = users[0][1]  # Assuming the first name is stored at index 1
         print(f"User ID: {session['user_id']}, Firstname: {session['firstname']}")  # Debugging session values
-        return redirect(url_for('home'))
+        return redirect(url_for('user_dashboard'))
     else:
         flash('Invalid Email or Password', 'danger')
         return redirect(url_for('login'))
@@ -173,6 +173,11 @@ def courses():
     courses_list = career_courses.get(career, ["Coming Soon"])
     return render_template("courses.html", career=career, courses=courses_list)
 
+
+@app.route('/ai_chatbot')
+def ai_chatbot():
+    return render_template('ai_chatbot.html')
+
 @app.route('/chatbot')
 def chatbot_page():
     return render_template('chatbot.html')
@@ -209,9 +214,10 @@ def user_dashboard():
     if 'user_id' in session:
         firstname = session.get('firstname', 'User')  # Default to 'User' if not found
         print(f"User Dashboard - Firstname: {firstname}")  # Debugging session value
+               
         
 
-
+ 
 
     # Job search links
         job_search_links =job_search_links = {
@@ -268,4 +274,4 @@ def user_dashboard():
     else:
         return redirect(url_for('login'))
 if __name__ == '__main__':
-    app.run(debug=True, host='127.0.0.1', port=5002)
+    app.run(debug=True, host='127.0.0.1', port=5004)
