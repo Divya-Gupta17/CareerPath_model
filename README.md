@@ -62,7 +62,7 @@ Libraries: pandas, numpy, joblib, Flask, requests
 
 Installation & Setup
 1. Clone the repository
-git clone https://github.com/yourusername/CareerPath.git
+git clone https://github.com/Divya-Gupta17/CareerPath_model
 cd CareerPath/backend
 
 2. Create virtual environment & install dependencies
