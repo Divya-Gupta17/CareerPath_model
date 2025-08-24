@@ -20,7 +20,7 @@ Provides conversational guidance to users about career options, pathways.
 
 Interactive Web Interface:
 
-Developed using Flask (backend) and htl,css and js (frontend).
+Developed using Flask (backend) and html,css and js (frontend).
 
 Users can input details via forms and receive immediate recommendations.
 
