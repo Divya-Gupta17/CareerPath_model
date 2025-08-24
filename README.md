@@ -1,7 +1,8 @@
 Career Path Recommendation System
 Project Overview
 
-The Career Path Recommendation System is an AI-powered web application designed to help students and professionals discover optimal career paths based on their skills, education, interests, and job experience. The system leverages Machine Learning (Random Forest Classifier) to provide personalized career recommendations, along with course suggestions and guidance to enhance employability.
+The Career Path Recommendation System is an AI-powered web application designed to help students and professionals discover optimal career paths based on their skills, education, interests, and job experience. The system leverages Machine Learning from sklearn.linear_model import LogisticRegression
+ to provide personalized career recommendations, along with course suggestions and guidance to enhance employability.
 
 Features
 
@@ -15,11 +16,11 @@ Suggests relevant online courses to strengthen skills required for the recommend
 
 Chatbot Integration (SkillBot):
 
-Provides conversational guidance to users about career options, pathways, and FAQs using Dialogflow.
+Provides conversational guidance to users about career options, pathways.
 
 Interactive Web Interface:
 
-Developed using Flask (backend) and React (frontend).
+Developed using Flask (backend) and htl,css and js (frontend).
 
 Users can input details via forms and receive immediate recommendations.
 
@@ -52,7 +53,7 @@ Frontend:  HTML, CSS, JavaScript
 
 Backend: Python, Flask
 
-Machine Learning: Random Forest Classifier, scikit-learn
+Machine Learning: LogisticRegression, scikit-learn , vector tfidf
 
 Chatbot: js based and gemini api key for dynamic chatbot
 
@@ -84,13 +85,14 @@ career_data.csv contains:
 
 Candidate skills, interests, academic scores, gender, job status
 
-Recommended careers and course suggestions
+Recommended careers and course static viewer.
 
-Source: Custom dataset prepared for training the Random Forest model.
+Source: Custom dataset prepared for training the logistic regression
 
 Machine Learning Model
 
-Algorithm: Random Forest Classifier
+Algorithm: LogisticRegression
+
 
 Inputs: Skills, interests, education, gender, job status
 
@@ -102,7 +104,6 @@ Saved Model: career_model.pkl
 
 Chatbot (SkillBot)
 
-
 Capabilities:
 
 Answer FAQs about careers and courses
@@ -113,9 +114,6 @@ Interact conversationally with users
 
 Integration: Embedded in chatbot.html page, communicates with Flask backend via REST API.
 
-Screenshots
-
-(You can add screenshots of your homepage, career recommendation page, courses page, and chatbot here for visual appeal)
 
 Usage
 
